@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/eacraft13/ocp-fantasy-predictor/issues"
   },
-  "homepage": "https://github.com/eacraft13/ocp-fantasy-predictor#readme"
+  "homepage": "https://github.com/eacraft13/ocp-fantasy-predictor#readme",
+  "dependencies": {
+    "jStat": "^1.4.7",
+    "lodash": "^3.10.1",
+    "rethinkdb": "^2.2.0"
+  }
 }
