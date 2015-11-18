@@ -1,7 +1,7 @@
-var _        = require('lodash');
-var jStat    = require('jStat').jStat;
-var r        = require('rethinkdb');
-var rOptions = require('./config/rethinkdb');
+var _           = require('lodash');
+var llCorrelate = require('./lib/league_leaders/correlate');
+var r           = require('rethinkdb');
+var rOptions    = require('./config/rethinkdb');
 
 
 
@@ -17,9 +17,12 @@ r.connect(rOptions.connection, function(err, conn) {
         Position: 'QB'
     })
     .run(conn, function(err, cursor) {
-        cursor.each(function(err, row) {
+        cursor.toArray(function(err, results) {
             if (err) throw err;
-            console.log(row.FantasyPointsFanDuel);
+            llCorrelate(results, function(err, data) {
+                console.log(data);
+                process.exit();
+            });
         });
     });
 });
