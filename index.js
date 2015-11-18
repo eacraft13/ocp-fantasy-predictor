@@ -20,7 +20,15 @@ r.connect(rOptions.connection, function(err, conn) {
         cursor.toArray(function(err, results) {
             if (err) throw err;
             llCorrelate(results, function(err, data) {
-                console.log(data);
+                var display = _.chain(data)
+                    .filter(function(val) {
+                        return val.corrcoeff;
+                    })
+                    .sortBy(function(val) {
+                        return Math.abs(val.corrcoeff);
+                    })
+                    .value();
+                console.log(display);
                 process.exit();
             });
         });
