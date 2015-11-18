@@ -1,0 +1,19 @@
+{
+  "name": "ocp-fantasy-predictor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eacraft13/ocp-fantasy-predictor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eacraft13/ocp-fantasy-predictor/issues"
+  },
+  "homepage": "https://github.com/eacraft13/ocp-fantasy-predictor#readme"
+}
