@@ -29,8 +29,13 @@ r.connect(rOptions.connection, function(err, conn) {
     })
     .run(conn, function(err, cursor) {
         cursor.toArray(function(err, results) {
-            console.log(results[0]);
             if (err) throw err;
+
+            // Remove players that scored less than 5
+            results = _.remove(results, function(val) {
+                return val.FantasyPointsFanDuel < 8;
+            });
+
             correlate(results, function(err, data) {
                 var display = _.chain(data)
                     .filter(function(val) {
